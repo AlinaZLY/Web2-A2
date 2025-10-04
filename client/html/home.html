@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity Event Hub - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!--Navigation bar -->
+  <nav class="navbar">
+    <div class="logo">Charity Event Hub</div>
+    <div class="nav-links">
+      <a href="/" class="active">Home</a>
+      <a href="/search">Search Events</a>
+    </div>
+  </nav>
+
+  <!--Header image-->
+  <img src="header.jpg" alt="Charity Event Banner" class="header-image">
+
+  <div class="container">
+    <!--Static information-->
+    <section class="org-info">
+      <h1>Our Description</h1>
+      <p>We provide a convenient platform for people to access various meaningful charitable activities, with the main activities supporting meaningful causes such as education, healthcare, and environmental protection.</p>
+      <p><strong>Contact us:</strong> AlinaZhang@163.com | 123 456 7890</p>
+    </section>
+
+    <!--Dynamic information loading-->
+    <section>
+      <h2>Upcoming Charity Events</h2>
+      <div id="upcoming-events" class="events-grid">
+        <!--Dynamically populated by home.js-->
+        <p>Loading upcoming events...</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Past Charity Events</h2>
+      <div id="past-events" class="events-grid">
+        <p>Loading past events...</p>
+      </div>
+    </section>
+  </div>
+
+  <!--Introduce homepage logic-->
+  <script src="home.js"></script>
+</body>
+</html>

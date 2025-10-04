@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity Event Hub - Event Detail</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!--Navigation bar-->
+  <nav class="navbar">
+    <div class="logo">Charity Event Hub</div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/search">Search Events</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div id="event-detail" class="detail-card">
+      <p>Loading event details...</p>
+    </div>
+
+    <!--Register Button-->
+    <button id="register-btn" class="btn">Register for This Event</button>
+  </div>
+
+  <!--Registration pop-up window-->
+  <div id="register-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Registration Information</h2>
+      <p>This feature is currently under development. Please check back later!</p>
+    </div>
+  </div>
+
+  <!--Introduce detailpage logic-->
+  <script src="detail.js"></script>
+</body>
+</html>

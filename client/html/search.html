@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity Event Hub - Search</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!--Navigation Bar-->
+  <nav class="navbar">
+    <div class="logo">Charity Event Hub</div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/search" class="active">Search Events</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Search Charity Events</h1>
+
+    <!--Search form-->
+    <form id="search-form" class="search-form">
+      <div class="form-group">
+        <label for="date">Event Date (YYYY-MM):</label>
+        <input type="month" id="eventMonth" name="eventMonth">
+      </div>
+      <div class="form-group">
+        <label for="location">Location:</label>
+        <input type="text" id="location" placeholder="e.g., Melbourne">
+      </div>
+      <div class="form-group">
+        <label for="category">Event Category:</label>
+        <select id="category" name="category">
+          <option value="">All Categories</option>
+          <!--Category options are dynamically populated by search.js-->
+        </select>
+      </div>
+      <div class="form-buttons">
+        <button type="submit" class="btn btn-search">Search</button>
+        <button type="button" id="clear-btn" class="btn btn-clear">Clear Filters</button>
+      </div>
+    </form>
+
+    <!--Dynamic information loading-->
+    <div id="search-results" class="events-grid">
+      <p>Enter search criteria and click "Search" to find events.</p>
+    </div>
+  </div>
+
+  <!-- 引入搜索页逻辑 -->
+  <script src="search.js"></script>
+</body>
+</html>
