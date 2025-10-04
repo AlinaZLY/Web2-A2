@@ -1,12 +1,11 @@
 const express = require('express');
 const path = require('path');
-
 const app = express();
 const PORT = 8080;
 
 app.use(express.static(path.join(__dirname, 'css')));
 app.use(express.static(path.join(__dirname, 'js')));
-app.use(express.static(path.join(__dirname, 'images')));
+app.use('/client', express.static(path.join(__dirname, '..', 'client')));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'html', 'home.html'));
