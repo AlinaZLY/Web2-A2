@@ -27,7 +27,7 @@ exports.getHomeEvents = (req, res) => {
 
 //Search for activities by date, location, and category
 exports.searchEvents = (req, res) => {
-  const { date, location, category_id } = req.query;
+  const { eventMonth, location, category_id } = req.query;
   let sql = `
     SELECT e.*, o.org_name, c.category_name 
     FROM charity_events e
@@ -37,9 +37,10 @@ exports.searchEvents = (req, res) => {
   `;
   const params = [];
 
-  if (date) {
-    sql += ' AND DATE(e.event_date) = ?';
-    params.push(date);
+  if (eventMonth) {
+    const [year, month] = eventMonth.split('-');
+    sql += ' AND YEAR(e.event_date) = ? AND MONTH(e.event_date) = ?';
+    params.push(year, month);
   }
   if (location) {
     sql += ' AND e.location LIKE CONCAT("%", ?, "%")';
@@ -54,6 +55,19 @@ exports.searchEvents = (req, res) => {
     if (err) {
       return res.status(500).json({ error: 'The search event failed. Please try again later.' });
     }
+    res.json(results);
+  });
+};
+
+//Get all categories
+exports.getCategories = (req, res) => {
+  const sql = 'SELECT category_id, category_name FROM event_categories ORDER BY category_name';
+  executeQuery(sql, (err, results) => {
+    if (err) {
+      console.error('Categories query error:', err);
+      return res.status(500).json({ error: 'Failed to load categories' });
+    }
+    console.log('Result:', results);
     res.json(results);
   });
 };
@@ -77,16 +91,5 @@ exports.getEventDetail = (req, res) => {
       return res.status(404).json({ error: 'The event does not exist or has been removed from the shelves.' });
     }
     res.json(results[0]);
-  });
-};
-
-//Get all categories
-exports.getCategories = (req, res) => {
-  const sql = 'SELECT * FROM event_categories ORDER BY category_name ASC';
-  executeQuery(sql, (err, results) => {
-    if (err) {
-      return res.status(500).json({ error: 'Failed to get categories' });
-    }
-    res.json(results);
   });
 };
