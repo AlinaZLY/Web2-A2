@@ -1,44 +1,47 @@
-/* 全局样式重置（Module 1 CSS基础） */
+/* 全局样式重置 */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
 }
 
 body {
   line-height: 1.6;
-  color: #333;
-  background-color: #f5f5f5;
+  color: #2d3748; /* 深灰蓝色文本，提高可读性 */
+  background-color: #f8fafc; /* 极浅灰蓝色背景，柔和不刺眼 */
   padding-bottom: 50px;
 }
 
-/* 导航栏（所有页面统一，Module 1 DOM导航） */
+/* 导航栏 */
 .navbar {
-  background-color: #2c3e50;
+  background-color: #1e40af; /* 深蓝色主色调，传达信任与专业 */
   color: white;
   padding: 1rem 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  letter-spacing: 0.5px;
 }
 
 .nav-links a {
-  color: white;
+  color: #e0f2fe; /* 浅蓝色文本，与深蓝背景形成柔和对比 */
   text-decoration: none;
   margin-left: 2rem;
   padding: 0.5rem 0;
   border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
 }
 
 .nav-links a:hover, .nav-links a.active {
-  border-bottom: 2px solid #3498db;
+  color: white;
+  border-bottom: 2px solid #38bdf8; /* 亮蓝色下划线，突出当前页 */
 }
 
 /* 头部图片（首页特色） */
@@ -58,60 +61,32 @@ body {
 
 /* 标题样式 */
 h1, h2 {
-  color: #2c3e50;
+  color: #0f172a; /* 更深的蓝色，强化标题层次感 */
   margin: 1.5rem 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #bfdbfe; /* 浅蓝色边框，呼应主题 */
   padding-bottom: 0.5rem;
 }
 
-/* 机构信息区域（首页静态内容） */
+/* 机构信息区域 */
 .org-info {
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
+  border-top: 4px solid #3b82f6; /* 蓝色顶部装饰条，增加辨识度 */
 }
 
 .org-info p {
   margin: 0.8rem 0;
+  color: #475569; /* 中灰色文本，减轻视觉压力 */
 }
 
-/* 活动卡片样式（动态生成，Module 1 DOM操作） */
-.events-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0;
-}
-
-.event-card {
-  background-color: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.event-card:hover {
-  transform: translateY(-5px); /* 悬停效果，提升体验 */
-}
-
-.event-card h3 {
-  color: #2c3e50;
-  margin-bottom: 1rem;
-}
-
-.event-card p {
-  color: #666;
-  margin: 0.5rem 0;
-}
-
-/* 按钮样式（Module 1 事件处理） */
+/* 按钮样式 */
 .btn {
   display: inline-block;
   padding: 0.6rem 1.2rem;
-  background-color: #3498db;
+  background-color: #3b82f6; /* 蓝色按钮，主色调应用 */
   color: white;
   border: none;
   border-radius: 4px;
@@ -119,59 +94,11 @@ h1, h2 {
   text-decoration: none;
   font-size: 1rem;
   margin-top: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #2980b9;
-}
-
-/* 搜索表单样式（Module 2 表单事件） */
-.search-form {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 2rem;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: #333;
-}
-
-.form-group input, .form-group select {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.form-buttons {
-  display: flex;
-  gap: 1rem;
-}
-
-.btn-search {
-  background-color: #2ecc71;
-}
-
-.btn-search:hover {
-  background-color: #27ae60;
-}
-
-.btn-clear {
-  background-color: #e74c3c;
-}
-
-.btn-clear:hover {
-  background-color: #c0392b;
+  background-color: #1d4ed8; /* 深一点的蓝色，hover反馈 */
 }
 
 /* 详情页样式 */
@@ -179,17 +106,18 @@ h1, h2 {
   background-color: white;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.07);
 }
 
 .detail-card p {
   margin: 1rem 0;
   line-height: 1.8;
+  color: #475569;
 }
 
 .progress-bar {
   height: 20px;
-  background-color: #eee;
+  background-color: #e0f2fe; /* 浅蓝色背景 */
   border-radius: 10px;
   margin: 1rem 0;
   overflow: hidden;
@@ -197,18 +125,19 @@ h1, h2 {
 
 .progress-fill {
   height: 100%;
-  background-color: #2ecc71;
+  background-color: #10b981; /* 绿色进度条，代表完成度 */
+  transition: width 1s ease;
 }
 
-/* 弹窗样式（Module 1 DOM动态生成） */
+/* 弹窗样式 */
 .modal {
-  display: none; /* 默认隐藏 */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1000;
 }
 
@@ -220,6 +149,7 @@ h1, h2 {
   max-width: 500px;
   border-radius: 8px;
   position: relative;
+  border-top: 4px solid #3b82f6; /* 蓝色顶部标识 */
 }
 
 .close-modal {
@@ -228,14 +158,21 @@ h1, h2 {
   right: 1.5rem;
   font-size: 1.5rem;
   cursor: pointer;
+  color: #64748b;
+  transition: color 0.2s ease;
+}
+
+.close-modal:hover {
+  color: #ef4444;
 }
 
 /* 错误提示样式 */
 .error {
-  color: #e74c3c;
+  color: #dc2626; /* 红色错误文本 */
   font-weight: bold;
   padding: 1rem;
-  background-color: #fadbd8;
+  background-color: #fee2e2; /* 浅红色背景 */
   border-radius: 4px;
   margin: 1rem 0;
+  border-left: 3px solid #ef4444;
 }

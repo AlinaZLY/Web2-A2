@@ -1,6 +1,87 @@
-
 document.addEventListener('DOMContentLoaded', () => {
+  // 初始化轮播图所需变量
+  const slidesContainer = document.querySelector('.carousel-slides');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  const indicators = document.querySelectorAll('.indicator');
+  let currentIndex = 0;
+  let slideInterval;
+
   fetchHomeEvents();//Call the API to get the homepage activities
+
+  function initCarousel() {
+    showSlide(currentIndex);
+    startSlideInterval();
+    
+    // 绑定按钮事件
+    prevBtn.addEventListener('click', showPrevSlide);
+    nextBtn.addEventListener('click', showNextSlide);
+    
+    // 绑定指示点事件
+    indicators.forEach(indicator => {
+      indicator.addEventListener('click', () => {
+        currentIndex = parseInt(indicator.dataset.index);
+        showSlide(currentIndex);
+        resetSlideInterval();
+      });
+    });
+    
+    // 鼠标悬停暂停/离开继续
+    slidesContainer.addEventListener('mouseenter', stopSlideInterval);
+    slidesContainer.addEventListener('mouseleave', startSlideInterval);
+  }
+
+  function showSlide(index) {
+    // 处理边界情况
+    if (index < 0) {
+      currentIndex = slides.length - 1;
+    } else if (index >= slides.length) {
+      currentIndex = 0;
+    } else {
+      currentIndex = index;
+    }
+    
+    // 移动轮播容器
+    slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+    
+    // 更新指示点状态
+    indicators.forEach((indicator, i) => {
+      indicator.classList.toggle('active', i === currentIndex);
+    });
+    
+    // 更新当前幻灯片的active类
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === currentIndex);
+    });
+  }
+
+  function showPrevSlide() {
+    showSlide(currentIndex - 1);
+    resetSlideInterval();
+  }
+
+  function showNextSlide() {
+    showSlide(currentIndex + 1);
+    resetSlideInterval();
+  }
+
+  function startSlideInterval() {
+    // 每隔5秒自动切换
+    slideInterval = setInterval(showNextSlide, 5000);
+  }
+
+  function stopSlideInterval() {
+    clearInterval(slideInterval);
+  }
+
+  function resetSlideInterval() {
+    stopSlideInterval();
+    startSlideInterval();
+  }
+
+  // 初始化轮播图
+  initCarousel();
 });
 
 //Call the API to obtain the homepage activity data

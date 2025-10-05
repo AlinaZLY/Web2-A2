@@ -1,0 +1,147 @@
+.container {
+  max-width: 1300px;      /* 与轮播图一致 */
+  margin: 0 auto;         /* 居中 */
+  padding: 2rem 3rem;     /* 上下留白更舒适 */
+  background: #fff;       /* 白色背景卡片效果 */
+  border-radius: 18px;    /* 与轮播图圆角一致 */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* 每个 section 的间距 */
+.org-info,
+.events-section,
+.contact-brand {
+  margin-bottom: 3rem;
+}
+
+/* 标题层次优化 */
+.org-info h1, 
+.events-section h2,
+.contact-brand h3 {
+  text-align: center;
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.org-info p,
+.events-section p,
+.contact-brand p {
+  text-align: center;
+  color: #555;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0.5rem auto 1.5rem auto;
+}
+
+/* 活动卡片网格布局 */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+/* 活动卡片样式 */
+.event-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 3px solid #38bdf8;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+.event-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.event-card h3 {
+  margin: 0.8rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.event-card p {
+  margin: 0.4rem 0.8rem;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.event-card .btn {
+  display: inline-block;
+  margin: 0.8rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg,  #3498db, #2980b9);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.event-card .btn:hover {
+  background: linear-gradient(135deg,  #3498db, #2980b9);
+}
+
+/* 联系方式品牌区块 */
+.contact-brand {
+  background: linear-gradient(135deg, #3498db, #2980b9); 
+  color: white;
+  border-radius: 14px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(52, 152, 219, 0.15);
+}
+
+.contact-brand h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  color: white;
+}
+
+.contact-brand p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.contact-item svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+/* 页脚与主体间距 */
+footer {
+  max-width: 1300px;
+  margin: 2rem auto 0 auto;
+  padding: 1.5rem;
+  text-align: center;
+  color: #888;
+  border-top: 1px solid #eee;
+}

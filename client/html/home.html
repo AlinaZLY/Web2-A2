@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Charity Event Hub - Home</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="carousel.css">
+  <link rel="stylesheet" href="theme.css">
 </head>
 <body>
   <!--Navigation bar -->
@@ -16,17 +18,69 @@
     </div>
   </nav>
 
-  <!--Header image-->
-  <img src="/client/image/header.jpg" alt="Charity Event Banner" class="header-image">
+    <!-- 轮播图 -->
+  <section class="carousel-container">
+    <div class="carousel-slides">
+      <div class="carousel-slide">
+        <img src="/client/image/header1.jpg" alt="Charity Event Banner" class="header1-image">
+        <div class="carousel-caption">
+          <h2>Join Us to Make World Better!</h2>
+          <p>As long as we work together, we will definitely be able to make a change.</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="/client/image/header2.jpg" alt="Charity event 2">
+        <div class="carousel-caption">
+          <h2>Education Foundation</h2>
+          <p>Help children access quality learning opportunities.</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="/client/image/header3.jpg" alt="Charity event 3">
+        <div class="carousel-caption">
+          <h2>Red Cross</h2>
+          <p>Join us to protect people's lives and health.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control prev">❮</button>
+    <button class="carousel-control next">❯</button>
+    <div class="carousel-indicators">
+      <div class="indicator active" data-index="0"></div>
+      <div class="indicator" data-index="1"></div>
+      <div class="indicator" data-index="2"></div>
+    </div>
+  </section>
 
   <div class="container">
     <!--Static information-->
     <section class="org-info">
       <h1>Our Description</h1>
       <p>We provide a convenient platform for people to access various meaningful charitable activities, with the main activities supporting meaningful causes such as education, healthcare, and environmental protection.</p>
-      <p><strong>Contact us:</strong> AlinaZhang@163.com | 123 456 7890</p>
     </section>
 
+    <section class="contact-brand">
+      <h3>Get In Touch</h3>
+      <p>Have questions or want to collaborate? Reach out to us:</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <!-- 邮件图标 -->
+          <svg viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          <span>AlinaZhang@163.com</span>
+        </div>
+        <div class="contact-item">
+          <!-- 电话图标 -->
+          <svg viewBox="0 0 24 24">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          </svg>
+          <span>123 456 7890</span>
+        </div>
+      </div>
+    </section>
+
+    
     <!--Dynamic information loading-->
     <section>
       <h2>Upcoming Charity Events</h2>
